@@ -9,31 +9,33 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 extension UTType {
-    static var exampleText: UTType {
-        UTType(importedAs: "com.example.plain-text")
-    }
+  static var leonardoProgram: UTType {
+    UTType(exportedAs: "de.malteklemm.leonardo.program")
+  }
 }
 
 struct LeonardoDocument: FileDocument {
-    var text: String
+  var program: Program
+  var stateProgram: Program
 
-    init(text: String = "Hello, world!") {
-        self.text = text
-    }
+  init(program: Program = Program(statements: [GoStatement().asAnyStatement(), PenDownStatement().asAnyStatement()]), stateProgram: Program = Program(statements: [])) {
+    self.program = program
+    self.stateProgram = stateProgram
+  }
 
-    static var readableContentTypes: [UTType] { [.exampleText] }
+  static var readableContentTypes: [UTType] { [.leonardoProgram] }
 
-    init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents,
-              let string = String(data: data, encoding: .utf8)
-        else {
-            throw CocoaError(.fileReadCorruptFile)
-        }
-        text = string
+  init(configuration: ReadConfiguration) throws {
+    guard let data = configuration.file.regularFileContents else {
+      throw CocoaError(.fileReadCorruptFile)
     }
-    
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let data = text.data(using: .utf8)!
-        return .init(regularFileWithContents: data)
-    }
+    let programs = try JSONDecoder().decode([Program].self, from: data)
+    self.program = programs[0]
+    self.stateProgram = programs[1]
+  }
+
+  func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+    let data = try JSONEncoder().encode([self.program, self.stateProgram])
+    return .init(regularFileWithContents: data)
+  }
 }
