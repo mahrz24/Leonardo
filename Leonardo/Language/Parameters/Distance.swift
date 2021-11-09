@@ -12,4 +12,12 @@ struct DistanceParameter: ConcreteParameter {
   var id: UUID = UUID()
   
   var length: Double = 1.0
+  
+  init () {
+    
+  }
+  
+  init(distance: Double) {
+    self.length = distance
+  }
 }

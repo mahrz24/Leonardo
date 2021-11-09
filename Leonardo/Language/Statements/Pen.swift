@@ -14,7 +14,7 @@ struct PenDownStatement: ConcreteStatement {
 
   var id: UUID = UUID()
   
-  var parameters: [AnyParameter] { get { [] } }
+  var parameters: [AnyParameter] { get { [] }  set { } }
   var color: Color = Color(DynamicColor.red.tinted(amount: 0.75))
   
   enum CodingKeys: String, CodingKey {
@@ -37,7 +37,7 @@ struct PenUpStatement: ConcreteStatement {
 
   var id: UUID = UUID()
   
-  var parameters: [AnyParameter] { get { [] } }
+  var parameters: [AnyParameter] { get { [] } set {} }
   var color: Color = Color(DynamicColor.red.tinted(amount: 0.5))
   
   enum CodingKeys: String, CodingKey {

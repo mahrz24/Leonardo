@@ -9,6 +9,7 @@ import Foundation
 
 public enum ParameterType: String, Codable {
   case distance
+  case angle
 }
 
 public protocol Parameter: Equatable, Identifiable, CustomStringConvertible {
@@ -102,6 +103,8 @@ public struct AnyParameter: Parameter, Codable {
     switch type {
     case .distance:
       self.init(try container.decode(DistanceParameter.self, forKey: .base))
+    case .angle:
+      self.init(try container.decode(AngleParameter.self, forKey: .base))
     }
   }
 

@@ -12,7 +12,9 @@ struct LeonardoCanvas: View {
 
   var body: some View {
     Canvas { graphicsContext, size in
-      // TODO: move execution out
+      
+      let turtle = graphicsContext.resolveSymbol(id: 0)!
+      
       let midpoint = CGPoint(x: size.width / 2, y: size.height / 2)
       var leonardoContext = LeonardoContext(
         position: midpoint,
@@ -25,12 +27,21 @@ struct LeonardoCanvas: View {
         leonardoContext = statement.execute(leonardoContext, graphicsContext)
       }
       graphicsContext.stroke(leonardoContext.path, with: .color(.black))
+      
+      // Draw the turtle
+      graphicsContext.translateBy(x: leonardoContext.position.x, y: leonardoContext.position.y)
+      graphicsContext.rotate(by: leonardoContext.angle)
+      graphicsContext.scaleBy(x: 0.5, y: 0.5)
+      graphicsContext.draw(turtle, at: .init(x: 0, y: 0), anchor: .center)
+      
+    } symbols: {
+      Image("turtle").tag(0)
     }
   }
 }
 
 struct LeonardoCanvas_Previews: PreviewProvider {
   static var previews: some View {
-    LeonardoCanvas(statements: .constant([PenDownStatement().asAnyStatement(), GoStatement().asAnyStatement()]))
+    LeonardoCanvas(statements: .constant([PenDownStatement().asAnyStatement(), GoStatement().asAnyStatement(), TurnStatement(angle: 30).asAnyStatement()]))
   }
 }

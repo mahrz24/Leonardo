@@ -5,24 +5,36 @@
 //  Created by Malte Klemm on 30.10.21.
 //
 
-import Foundation
 import DynamicColor
+import Foundation
 import SwiftUI
 
 struct GoStatement: ConcreteStatement {
   static var type: StatementType = .go
 
-  var id: UUID = UUID()
+  var id = UUID()
   
-  var distanceParameter: DistanceParameter = DistanceParameter()
-  var parameters: [AnyParameter] { get { [distanceParameter.asAnyParameter()] } }
+  var distanceParameter = DistanceParameter()
+  var parameters: [AnyParameter] {
+    get { [self.distanceParameter.asAnyParameter()] }
+    set {
+      self.distanceParameter = newValue[0].unbox(as: DistanceParameter.self)!
+    }
+  }
   
-  var color: Color = Color(DynamicColor.blue.tinted(amount: 0.75))
+  init(distance: Double = 1) {
+    self.distanceParameter = DistanceParameter(distance: distance)
+  }
+  
+  init(id: UUID, distanceParameter: DistanceParameter) {
+    self.id = id
+    self.distanceParameter = distanceParameter
+  }
+  
+  var color = Color(DynamicColor.blue.tinted(amount: 0.75))
   
   func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext {
     var ctx = LeonardoContext(withContext: leonardoContext)
-    
-    
     ctx.position.x += sin(ctx.angle.radians) * self.distanceParameter.length * ctx.stepSize
     ctx.position.y -= cos(ctx.angle.radians) * self.distanceParameter.length * ctx.stepSize
     
@@ -40,8 +52,6 @@ struct GoStatement: ConcreteStatement {
   }
   
   func copy() -> GoStatement {
-    return GoStatement(id: UUID())
+    GoStatement(id: UUID(), distanceParameter: self.distanceParameter)
   }
-  
-  
 }

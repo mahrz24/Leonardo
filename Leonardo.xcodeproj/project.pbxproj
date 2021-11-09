@@ -17,6 +17,11 @@
 		E97F3EBD27344FFB00E011B3 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = E97F3EBC27344FFB00E011B3 /* DynamicColor */; };
 		E97F3EBF27346E7B00E011B3 /* LeonardoCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EBE27346E7B00E011B3 /* LeonardoCanvas.swift */; };
 		E97F3EC127346F3000E011B3 /* LeonardoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC027346F3000E011B3 /* LeonardoContext.swift */; };
+		E97F3EC32735D5E500E011B3 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC22735D5E500E011B3 /* Turn.swift */; };
+		E97F3EC52735D5FC00E011B3 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC42735D5FC00E011B3 /* Angle.swift */; };
+		E97F3EC72737B93800E011B3 /* ParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC62737B93800E011B3 /* ParameterView.swift */; };
+		E97F3EC92737BD3800E011B3 /* DistanceParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */; };
+		E97F3ECB2737BD4E00E011B3 /* AngleParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */; };
 		E9B68A802729D107005A20F3 /* LeonardoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A7F2729D107005A20F3 /* LeonardoApp.swift */; };
 		E9B68A822729D107005A20F3 /* LeonardoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A812729D107005A20F3 /* LeonardoDocument.swift */; };
 		E9B68A842729D107005A20F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A832729D107005A20F3 /* ContentView.swift */; };
@@ -54,6 +59,11 @@
 		E97F3EB92734280F00E011B3 /* Pen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pen.swift; sourceTree = "<group>"; };
 		E97F3EBE27346E7B00E011B3 /* LeonardoCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoCanvas.swift; sourceTree = "<group>"; };
 		E97F3EC027346F3000E011B3 /* LeonardoContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoContext.swift; sourceTree = "<group>"; };
+		E97F3EC22735D5E500E011B3 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		E97F3EC42735D5FC00E011B3 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
+		E97F3EC62737B93800E011B3 /* ParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterView.swift; sourceTree = "<group>"; };
+		E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceParameterView.swift; sourceTree = "<group>"; };
+		E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleParameterView.swift; sourceTree = "<group>"; };
 		E9B68A7C2729D107005A20F3 /* Leonardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leonardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B68A7F2729D107005A20F3 /* LeonardoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoApp.swift; sourceTree = "<group>"; };
 		E9B68A812729D107005A20F3 /* LeonardoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoDocument.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 			children = (
 				E97F3EB92734280F00E011B3 /* Pen.swift */,
 				E97F3E97272D1DB200E011B3 /* Go.swift */,
+				E97F3EC22735D5E500E011B3 /* Turn.swift */,
 			);
 			path = Statements;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 		E97F3E9C272D3C7700E011B3 /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				E97F3EC42735D5FC00E011B3 /* Angle.swift */,
 				E97F3E9D272D3D5E00E011B3 /* Distance.swift */,
 			);
 			path = Parameters;
@@ -127,6 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				E97F3EB72734237000E011B3 /* StatementView.swift */,
+				E97F3EC62737B93800E011B3 /* ParameterView.swift */,
+				E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */,
+				E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B68A822729D107005A20F3 /* LeonardoDocument.swift in Sources */,
+				E97F3EC72737B93800E011B3 /* ParameterView.swift in Sources */,
 				E9B68A802729D107005A20F3 /* LeonardoApp.swift in Sources */,
 				E9B68A842729D107005A20F3 /* ContentView.swift in Sources */,
 				E97F3E9B272D3BA400E011B3 /* Parameter.swift in Sources */,
@@ -337,8 +353,12 @@
 				E97F3EBA2734280F00E011B3 /* Pen.swift in Sources */,
 				E97F3EA0272DE80C00E011B3 /* Program.swift in Sources */,
 				E97F3E9E272D3D5E00E011B3 /* Distance.swift in Sources */,
+				E97F3EC52735D5FC00E011B3 /* Angle.swift in Sources */,
+				E97F3ECB2737BD4E00E011B3 /* AngleParameterView.swift in Sources */,
+				E97F3EC32735D5E500E011B3 /* Turn.swift in Sources */,
 				E97F3EB82734237000E011B3 /* StatementView.swift in Sources */,
 				E97F3EC127346F3000E011B3 /* LeonardoContext.swift in Sources */,
+				E97F3EC92737BD3800E011B3 /* DistanceParameterView.swift in Sources */,
 				E97F3EBF27346E7B00E011B3 /* LeonardoCanvas.swift in Sources */,
 				E97F3E96272D199800E011B3 /* Statement.swift in Sources */,
 			);

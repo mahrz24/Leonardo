@@ -12,11 +12,12 @@ public enum StatementType: String, Codable {
   case go
   case penDown
   case penUp
+  case turn
 }
 
 public protocol Statement: Equatable, Identifiable, CustomStringConvertible {
   var id: UUID { get }
-  var parameters: [AnyParameter] { get }
+  var parameters: [AnyParameter] { get set }
   var color: Color { get }
   
   func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext
@@ -51,7 +52,7 @@ private class AbstractStatement: Statement, Encodable {
   var type: StatementType { fatalError("Must override") }
 
   var id: UUID { fatalError("Must override") }
-  var parameters: [AnyParameter] { fatalError("Must override") }
+  var parameters: [AnyParameter] { get { fatalError("Must override") } set { fatalError("Must override") } }
   var color: Color { fatalError("Must override") }
   
   func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext {
@@ -81,7 +82,7 @@ private final class StatementWrapper<H: ConcreteStatement>: AbstractStatement {
 
   override var id: UUID { statement.id }
 
-  override var parameters: [AnyParameter] { statement.parameters }
+  override var parameters: [AnyParameter] { get { statement.parameters } set { statement.parameters = newValue } }
   override var color: Color { statement.color }
   
   override func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext {
@@ -110,7 +111,7 @@ public struct AnyStatement: Statement, Codable {
 
   public var type: StatementType { abstractStatement.type }
   public var id: UUID { abstractStatement.id }
-  public var parameters: [AnyParameter] { abstractStatement.parameters }
+  public var parameters: [AnyParameter] { get { abstractStatement.parameters } set { abstractStatement.parameters = newValue } }
   public var color: Color { abstractStatement.color }
   
   public func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext {
@@ -136,6 +137,8 @@ public struct AnyStatement: Statement, Codable {
       self.init(try container.decode(PenDownStatement.self, forKey: .base))
     case .penUp:
       self.init(try container.decode(PenUpStatement.self, forKey: .base))
+    case .turn:
+      self.init(try container.decode(TurnStatement.self, forKey: .base))
     }
   }
 
@@ -167,6 +170,12 @@ public struct AnyStatement: Statement, Codable {
       }
     case .penUp:
       if let unboxed = self.unbox(as: PenUpStatement.self) {
+        return unboxed.copy().asAnyStatement()
+      } else {
+        fatalError("Internal type and boxed type do not match.")
+      }
+    case .turn:
+      if let unboxed = self.unbox(as: TurnStatement.self) {
         return unboxed.copy().asAnyStatement()
       } else {
         fatalError("Internal type and boxed type do not match.")
