@@ -22,6 +22,7 @@
 		E97F3EC72737B93800E011B3 /* ParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC62737B93800E011B3 /* ParameterView.swift */; };
 		E97F3EC92737BD3800E011B3 /* DistanceParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */; };
 		E97F3ECB2737BD4E00E011B3 /* AngleParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */; };
+		E97F3ECE273C67E600E011B3 /* GoIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3ECD273C67E600E011B3 /* GoIconView.swift */; };
 		E9B68A802729D107005A20F3 /* LeonardoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A7F2729D107005A20F3 /* LeonardoApp.swift */; };
 		E9B68A822729D107005A20F3 /* LeonardoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A812729D107005A20F3 /* LeonardoDocument.swift */; };
 		E9B68A842729D107005A20F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B68A832729D107005A20F3 /* ContentView.swift */; };
@@ -64,6 +65,7 @@
 		E97F3EC62737B93800E011B3 /* ParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterView.swift; sourceTree = "<group>"; };
 		E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceParameterView.swift; sourceTree = "<group>"; };
 		E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleParameterView.swift; sourceTree = "<group>"; };
+		E97F3ECD273C67E600E011B3 /* GoIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoIconView.swift; sourceTree = "<group>"; };
 		E9B68A7C2729D107005A20F3 /* Leonardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leonardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B68A7F2729D107005A20F3 /* LeonardoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoApp.swift; sourceTree = "<group>"; };
 		E9B68A812729D107005A20F3 /* LeonardoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeonardoDocument.swift; sourceTree = "<group>"; };
@@ -138,12 +140,21 @@
 		E97F3EB62734235300E011B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E97F3ECC273C67D400E011B3 /* IconViews */,
 				E97F3EB72734237000E011B3 /* StatementView.swift */,
 				E97F3EC62737B93800E011B3 /* ParameterView.swift */,
 				E97F3EC82737BD3800E011B3 /* DistanceParameterView.swift */,
 				E97F3ECA2737BD4E00E011B3 /* AngleParameterView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E97F3ECC273C67D400E011B3 /* IconViews */ = {
+			isa = PBXGroup;
+			children = (
+				E97F3ECD273C67E600E011B3 /* GoIconView.swift */,
+			);
+			path = IconViews;
 			sourceTree = "<group>";
 		};
 		E9B68A732729D107005A20F3 = {
@@ -351,6 +362,7 @@
 				E97F3E9B272D3BA400E011B3 /* Parameter.swift in Sources */,
 				E97F3E98272D1DB200E011B3 /* Go.swift in Sources */,
 				E97F3EBA2734280F00E011B3 /* Pen.swift in Sources */,
+				E97F3ECE273C67E600E011B3 /* GoIconView.swift in Sources */,
 				E97F3EA0272DE80C00E011B3 /* Program.swift in Sources */,
 				E97F3E9E272D3D5E00E011B3 /* Distance.swift in Sources */,
 				E97F3EC52735D5FC00E011B3 /* Angle.swift in Sources */,

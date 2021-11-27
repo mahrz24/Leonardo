@@ -19,7 +19,7 @@ public protocol Statement: Equatable, Identifiable, CustomStringConvertible {
   var id: UUID { get }
   var parameters: [AnyParameter] { get set }
   var color: Color { get }
-  
+    
   func execute(_ leonardoContext: LeonardoContext, _ graphicsContext: GraphicsContext) -> LeonardoContext
 }
 

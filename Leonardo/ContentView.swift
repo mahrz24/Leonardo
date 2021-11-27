@@ -43,7 +43,7 @@ struct ContentView: View {
             }
           }
           Spacer()
-        }.frame(height: 100).padding(10)
+        }.frame(height: 100).padding(10).offset(x: 0, y: 5)
       }.frame(height: 100)
     }
   }
